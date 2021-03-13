@@ -12,10 +12,11 @@ mr= 0;
 bl= 0;
 bm= 0;
 br= 0;
-document.querySelector('.startButton').addEventListener('click', selectPlayer);
 
+document.querySelector('.startButton').addEventListener('click', selectPlayer);
 function selectPlayer(){
     randomize= Math.floor((Math.random() * 2) + 1);
+    document.querySelector('.startButton').style.display= 'none';
 
     if (randomize == 1){
         document.querySelector('.who').innerHTML= blue;
@@ -41,6 +42,8 @@ function change1(){
         tl= 2;
         winChecker();
     };
+
+    document.querySelector('.button1').disabled= true;
 };
 document.querySelector('.button2').addEventListener('click', change2);
 function change2(){
@@ -57,6 +60,8 @@ function change2(){
         tm= 2;
         winChecker();
     };
+    
+    document.querySelector('.button2').disabled= true;
 };
 document.querySelector('.button3').addEventListener('click', change3);
 function change3(){
@@ -73,6 +78,8 @@ function change3(){
         tr= 2;
         winChecker();
     };
+    
+    document.querySelector('.button3').disabled= true;
 };
 
 document.querySelector('.button4').addEventListener('click', change4);
@@ -90,6 +97,8 @@ function change4(){
         ml= 2;
         winChecker();
     };
+    
+    document.querySelector('.button4').disabled= true;
 };
 document.querySelector('.button5').addEventListener('click', change5);
 function change5(){
@@ -106,6 +115,8 @@ function change5(){
         m= 2;
         winChecker();
     };
+    
+    document.querySelector('.button5').disabled= true;
 };
 document.querySelector('.button6').addEventListener('click', change6);
 function change6(){
@@ -122,6 +133,8 @@ function change6(){
         mr= 2;
         winChecker();
     };
+    
+    document.querySelector('.button6').disabled= true;
 };
 
 document.querySelector('.button7').addEventListener('click', change7);
@@ -139,6 +152,8 @@ function change7(){
         bl= 2;
         winChecker();
     };
+    
+    document.querySelector('.button7').disabled= true;
 };
 document.querySelector('.button8').addEventListener('click', change8);
 function change8(){
@@ -155,6 +170,8 @@ function change8(){
         bm= 2;
         winChecker();
     };
+    
+    document.querySelector('.button8').disabled= true;
 };
 document.querySelector('.button9').addEventListener('click', change9);
 function change9(){
@@ -171,6 +188,8 @@ function change9(){
         br= 2;
         winChecker();
     };
+    
+    document.querySelector('.button9').disabled= true;
 };
 
 function winChecker(){
@@ -222,4 +241,13 @@ function reset(){
     document.querySelector('.box9').src= 'Images/blank.jpg';
     btn.remove();
     document.querySelector('.winner').innerHTML= '';
+    document.querySelector('.button1').disabled= false;
+    document.querySelector('.button2').disabled= false;
+    document.querySelector('.button3').disabled= false;
+    document.querySelector('.button4').disabled= false;
+    document.querySelector('.button5').disabled= false;
+    document.querySelector('.button6').disabled= false;
+    document.querySelector('.button7').disabled= false;
+    document.querySelector('.button8').disabled= false;
+    document.querySelector('.button9').disabled= false;
 };
