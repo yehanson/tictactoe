@@ -196,6 +196,9 @@ function winChecker(){
     if (tl == 1 && tm == 1 && tr == 1 ||
         ml == 1 && m == 1 && mr == 1 ||
         bl == 1 && bm == 1 && br == 1 ||
+        tl == 1 && ml == 1 && bl == 1 ||
+        tm == 1 && m == 1 && bm == 1 ||
+        tr == 1 && mr == 1 && br == 1 ||
         tl == 1 && m == 1 && br == 1 ||
         tr == 1 && m == 1 && bl == 1){
             document.querySelector('.winner').innerHTML= blueWin;
@@ -207,6 +210,9 @@ function winChecker(){
     }else if (tl == 2 && tm == 2 && tr == 2 ||
         ml == 2 && m == 2 && mr == 2 ||
         bl == 2 && bm == 2 && br == 2 ||
+        tl == 2 && ml == 2 && bl == 2 ||
+        tm == 2 && m == 2 && bm == 2 ||
+        tr == 2 && mr == 2 && br == 2 ||
         tl == 2 && m == 2 && br == 2 ||
         tr == 2 && m == 2 && bl == 2){
             document.querySelector('.winner').innerHTML= redWin;
@@ -219,7 +225,6 @@ function winChecker(){
 };
 
 function reset(){
-    player= 0;
     tl= 0;
     tm= 0;
     tr= 0;
