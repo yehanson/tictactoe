@@ -1,43 +1,40 @@
 <!DOCTYPE html>
-<!--declares html 5 format-->
 <html lang="en">
-<!--select language-->
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<img src="Images/blank.jpg" width="150px" height="150px" id="box1">
-<img src="Images/blank.jpg" width="150px" height="150px" id="box2">
-<img src="Images/blank.jpg" width="150px" height="150px" id="box3">
-<br>
-<button onclick="changeBlue1()">Blue</button>
-<button onclick="changeRed1()">Red</button>
-<button onclick="changeBlue2()">Blue</button>
-<button onclick="changeRed2()">Red</button>
-<button onclick="changeBlue3()">Blue</button>
-<button onclick="changeRed3()">Red</button>
-<br>
-<img src="Images/blank.jpg" width="150px" height="150px" id="box4">
-<img src="Images/blank.jpg" width="150px" height="150px" id="box5">
-<img src="Images/blank.jpg" width="150px" height="150px" id="box6">
-<br>
-<button onclick="changeBlue4()">Blue</button>
-<button onclick="changeRed4()">Red</button>
-<button onclick="changeBlue5()">Blue</button>
-<button onclick="changeRed5()">Red</button>
-<button onclick="changeBlue6()">Blue</button>
-<button onclick="changeRed6()">Red</button>
-<br>
-<img src="Images/blank.jpg" width="150px" height="150px" id="box7">
-<img src="Images/blank.jpg" width="150px" height="150px" id="box8">
-<img src="Images/blank.jpg" width="150px" height="150px" id="box9">
-<br>
-<button onclick="changeBlue7()">Blue</button>
-<button onclick="changeRed7()">Red</button>
-<button onclick="changeBlue8()">Blue</button>
-<button onclick="changeRed8()">Red</button>
-<button onclick="changeBlue9()">Blue</button>
-<button onclick="changeRed9()">Red</button>
-<br>
-<script src='main.js'></script>
+<body>
+    <button class= 'startButton'>Click To Start</button>
+    <div class= 'who'></div>
+    <br>
+    <img src='Images/blank.jpg' width='150px' height='150px' class='box1'>
+    <img src='Images/blank.jpg' width='150px' height='150px' class='box2'>
+    <img src='Images/blank.jpg' width='150px' height='150px' class='box3'>
+    <br>
+    <button class='button1'>Top Left</button>
+    <button class='button2'>Top Middle</button>
+    <button class='button3'>Top Right</button>
+    <br>
+    <img src='Images/blank.jpg' width='150px' height='150px' class='box4'>
+    <img src='Images/blank.jpg' width='150px' height='150px' class='box5'>
+    <img src='Images/blank.jpg' width='150px' height='150px' class='box6'>
+    <br>
+    <button class='button4'>Middle Left</button>
+    <button class='button5'>Middle</button>
+    <button class='button6'>Middle Right</button>
+    <br>
+    <img src='Images/blank.jpg' width='150px' height='150px' class='box7'>
+    <img src='Images/blank.jpg' width='150px' height='150px' class='box8'>
+    <img src='Images/blank.jpg' width='150px' height='150px' class='box9'>
+    <br>
+    <button class='button7'>Bottom Left</button>
+    <button class='button8'>Bottom Middle</button>
+    <button class='button9'>Bottom Right</button>
+    <br>
 </body>
+<script src='main.js'></script>
 </html>
