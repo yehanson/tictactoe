@@ -1,7 +1,8 @@
 const blue= "Blue's turn";
 const red= "Red's turn";
-const blueWin= "Blue Wins!";
-const redWin= "Red Wins!";
+const blueWin= 'Blue Wins!';
+const redWin= 'Red Wins!';
+const tie= 'Tie';
 player= 0;
 tl= 0;
 tm= 0;
@@ -12,12 +13,29 @@ mr= 0;
 bl= 0;
 bm= 0;
 br= 0;
+document.querySelector('.button1').disabled= true;
+document.querySelector('.button2').disabled= true;
+document.querySelector('.button3').disabled= true;
+document.querySelector('.button4').disabled= true;
+document.querySelector('.button5').disabled= true;
+document.querySelector('.button6').disabled= true;
+document.querySelector('.button7').disabled= true;
+document.querySelector('.button8').disabled= true;
+document.querySelector('.button9').disabled= true;
 
 document.querySelector('.startButton').addEventListener('click', selectPlayer);
 function selectPlayer(){
     randomize= Math.floor((Math.random() * 2) + 1);
     document.querySelector('.startButton').style.display= 'none';
-
+    document.querySelector('.button1').disabled= false;
+    document.querySelector('.button2').disabled= false;
+    document.querySelector('.button3').disabled= false;
+    document.querySelector('.button4').disabled= false;
+    document.querySelector('.button5').disabled= false;
+    document.querySelector('.button6').disabled= false;
+    document.querySelector('.button7').disabled= false;
+    document.querySelector('.button8').disabled= false;
+    document.querySelector('.button9').disabled= false;
     if (randomize == 1){
         document.querySelector('.who').innerHTML= blue;
         player= 1;
@@ -202,11 +220,7 @@ function winChecker(){
         tl == 1 && m == 1 && br == 1 ||
         tr == 1 && m == 1 && bl == 1){
             document.querySelector('.winner').innerHTML= blueWin;
-            btn= document.createElement('button');
-            btn.innerHTML= 'Reset';
-            btn.className= 'rst';
-            btn.addEventListener('click', reset);
-            document.body.appendChild(btn);
+            endGame();
     }else if (tl == 2 && tm == 2 && tr == 2 ||
         ml == 2 && m == 2 && mr == 2 ||
         bl == 2 && bm == 2 && br == 2 ||
@@ -216,14 +230,30 @@ function winChecker(){
         tl == 2 && m == 2 && br == 2 ||
         tr == 2 && m == 2 && bl == 2){
             document.querySelector('.winner').innerHTML= redWin;
-            btn= document.createElement('button');
-            btn.innerHTML= 'Reset';
-            btn.className= 'rst';
-            btn.addEventListener('click', reset);
-            document.body.appendChild(btn);
+            endGame();
+    }else if (tl !== 0 && tm !== 0 && tr !== 0 &&
+        ml !== 0 && m !== 0 && mr !== 0 &&
+        bl !== 0 && bm !== 0 && br !== 0){
+            document.querySelector('.winner').innerHTML= tie
+            endGame();
     };
 };
-
+function endGame(){
+    btn= document.createElement('button');
+    btn.innerHTML= 'Reset';
+    btn.className= 'rst';
+    btn.addEventListener('click', reset);
+    document.body.appendChild(btn);
+    document.querySelector('.button1').disabled= true;
+    document.querySelector('.button2').disabled= true;
+    document.querySelector('.button3').disabled= true;
+    document.querySelector('.button4').disabled= true;
+    document.querySelector('.button5').disabled= true;
+    document.querySelector('.button6').disabled= true;
+    document.querySelector('.button7').disabled= true;
+    document.querySelector('.button8').disabled= true;
+    document.querySelector('.button9').disabled= true;
+};
 function reset(){
     tl= 0;
     tm= 0;
