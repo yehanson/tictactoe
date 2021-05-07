@@ -5,6 +5,7 @@ let array= [
     'b7', 'b8', 'b9'
 ];
 document.querySelector('.startButton').addEventListener('click', selectPlayer);
+
 function selectPlayer(){
     randomize= Math.floor((Math.random() * 2) + 1);
     if (randomize == 1){
@@ -53,15 +54,7 @@ function winchecker(e){
         array[2]== 1 && array[4]== 1 && array[6]== 1){
                 document.querySelector('.winner').innerHTML= 'Blue wins!';
                 document.querySelector('.who').innerHTML= '';
-                document.querySelector('#b1').removeEventListener('click', change);
-                document.querySelector('#b2').removeEventListener('click', change);
-                document.querySelector('#b3').removeEventListener('click', change);
-                document.querySelector('#b4').removeEventListener('click', change);
-                document.querySelector('#b5').removeEventListener('click', change);
-                document.querySelector('#b6').removeEventListener('click', change);
-                document.querySelector('#b7').removeEventListener('click', change);
-                document.querySelector('#b8').removeEventListener('click', change);
-                document.querySelector('#b9').removeEventListener('click', change);
+                removeel();
                 reset= document.createElement('button');
                 reset.innerHTML= 'Click To Restart';
                 reset.addEventListener('click', restart);
@@ -76,15 +69,7 @@ function winchecker(e){
             array[2]== 2 && array[4]== 2 && array[6]== 2){
                 document.querySelector('.winner').innerHTML= 'Red wins!';
                 document.querySelector('.who').innerHTML= '';
-                document.querySelector('#b1').removeEventListener('click', change);
-                document.querySelector('#b2').removeEventListener('click', change);
-                document.querySelector('#b3').removeEventListener('click', change);
-                document.querySelector('#b4').removeEventListener('click', change);
-                document.querySelector('#b5').removeEventListener('click', change);
-                document.querySelector('#b6').removeEventListener('click', change);
-                document.querySelector('#b7').removeEventListener('click', change);
-                document.querySelector('#b8').removeEventListener('click', change);
-                document.querySelector('#b9').removeEventListener('click', change);
+                removeel();
                 reset= document.createElement('button');
                 reset.innerHTML= 'Click To Restart';
                 reset.addEventListener('click', restart);
@@ -94,15 +79,7 @@ function winchecker(e){
         && array[6]!= 'b7' && array[7]!= 'b8' && array[8]!= 'b9'){
                 document.querySelector('.winner').innerHTML= 'Tie';
                 document.querySelector('.who').innerHTML= '';
-                document.querySelector('#b1').removeEventListener('click', change);
-                document.querySelector('#b2').removeEventListener('click', change);
-                document.querySelector('#b3').removeEventListener('click', change);
-                document.querySelector('#b4').removeEventListener('click', change);
-                document.querySelector('#b5').removeEventListener('click', change);
-                document.querySelector('#b6').removeEventListener('click', change);
-                document.querySelector('#b7').removeEventListener('click', change);
-                document.querySelector('#b8').removeEventListener('click', change);
-                document.querySelector('#b9').removeEventListener('click', change);
+                removeel();
                 reset= document.createElement('button');
                 reset.innerHTML= 'Click To Restart';
                 reset.addEventListener('click', restart);
@@ -112,4 +89,16 @@ function winchecker(e){
 
 function restart(){
     document.location.reload();
+};
+
+function removeel(){
+    document.querySelector('#b1').removeEventListener('click', change);
+    document.querySelector('#b2').removeEventListener('click', change);
+    document.querySelector('#b3').removeEventListener('click', change);
+    document.querySelector('#b4').removeEventListener('click', change);
+    document.querySelector('#b5').removeEventListener('click', change);
+    document.querySelector('#b6').removeEventListener('click', change);
+    document.querySelector('#b7').removeEventListener('click', change);
+    document.querySelector('#b8').removeEventListener('click', change);
+    document.querySelector('#b9').removeEventListener('click', change);
 };
