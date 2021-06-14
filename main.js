@@ -1,30 +1,37 @@
-let player= 0;
-let array= [
+let player;
+const array= [
     'b1', 'b2', 'b3',
     'b4', 'b5', 'b6',
     'b7', 'b8', 'b9'
 ];
-document.querySelector('.startButton').addEventListener('click', selectPlayer);
+document.querySelector('.startbutton').addEventListener('click', selectPlayer);
 
 function selectPlayer(){
-    randomize= Math.floor((Math.random() * 2) + 1);
-    if (randomize == 1){
-        document.querySelector('.who').innerHTML= "Blue's turn";
-        player= 1;
-    }else{
-        document.querySelector('.who').innerHTML= "Red's turn";
-        player= 2;
+    switch(document.querySelector('.ft').value){
+        case 'blue':
+            player= 1;
+            document.querySelector('.who').innerHTML= "Blue's turn";
+            break;
+        case 'red':
+            player= 2;
+            document.querySelector('.who').innerHTML= "Red's turn";
+            break;
+        case 'random':
+            randomize= Math.floor((Math.random() * 2) + 1);
+            if(randomize == 1){
+                document.querySelector('.who').innerHTML= "Blue's turn";
+                player= 1;
+            }else{
+                document.querySelector('.who').innerHTML= "Red's turn";
+                player= 2;
+            };
     };
-    document.querySelector('.startButton').style.display= 'none';
-    document.querySelector('#b1').addEventListener('click', change);
-    document.querySelector('#b2').addEventListener('click', change);
-    document.querySelector('#b3').addEventListener('click', change);
-    document.querySelector('#b4').addEventListener('click', change);
-    document.querySelector('#b5').addEventListener('click', change);
-    document.querySelector('#b6').addEventListener('click', change);
-    document.querySelector('#b7').addEventListener('click', change);
-    document.querySelector('#b8').addEventListener('click', change);
-    document.querySelector('#b9').addEventListener('click', change);
+
+    document.querySelector('.ftbox').style.display= 'none';
+
+    for(i= 1; i<=9; i++){
+        document.querySelector('#b' + i).addEventListener('click', change);
+    };
 };
 
 function change(e){
@@ -53,12 +60,7 @@ function winchecker(e){
         array[0]== 1 && array[4]== 1 && array[8]== 1||
         array[2]== 1 && array[4]== 1 && array[6]== 1){
                 document.querySelector('.winner').innerHTML= 'Blue wins!';
-                document.querySelector('.who').innerHTML= '';
-                removeel();
-                reset= document.createElement('button');
-                reset.innerHTML= 'Click To Restart';
-                reset.addEventListener('click', restart);
-                document.body.appendChild(reset);
+                onwin();
         }else if(array[0]== 2 && array[1]== 2 && array[2]== 2||
             array[3]== 2 && array[4]== 2 && array[5]== 2||
             array[6]== 2 && array[7]== 2 && array[8]== 2||
@@ -68,37 +70,27 @@ function winchecker(e){
             array[0]== 2 && array[4]== 2 && array[8]== 2||
             array[2]== 2 && array[4]== 2 && array[6]== 2){
                 document.querySelector('.winner').innerHTML= 'Red wins!';
-                document.querySelector('.who').innerHTML= '';
-                removeel();
-                reset= document.createElement('button');
-                reset.innerHTML= 'Click To Restart';
-                reset.addEventListener('click', restart);
-                document.body.appendChild(reset);
+                onwin();
         }else if(array[0]!= 'b1' && array[1]!= 'b2' && array[2]!= 'b3'
         && array[3]!= 'b4' && array[4]!= 'b5' && array[5]!= 'b6'
         && array[6]!= 'b7' && array[7]!= 'b8' && array[8]!= 'b9'){
                 document.querySelector('.winner').innerHTML= 'Tie';
-                document.querySelector('.who').innerHTML= '';
-                removeel();
-                reset= document.createElement('button');
-                reset.innerHTML= 'Click To Restart';
-                reset.addEventListener('click', restart);
-                document.body.appendChild(reset);
+                onwin();
+    };
+};
+
+function onwin(){
+    document.querySelector('.who').innerHTML= '';
+    reset= document.createElement('button');
+    reset.innerHTML= 'Click To Restart';
+    reset.addEventListener('click', restart);
+    document.body.appendChild(reset);
+
+    for(i= 1; i<=9; i++){
+        document.querySelector('#b' + i).removeEventListener('click', change);
     };
 };
 
 function restart(){
     document.location.reload();
-};
-
-function removeel(){
-    document.querySelector('#b1').removeEventListener('click', change);
-    document.querySelector('#b2').removeEventListener('click', change);
-    document.querySelector('#b3').removeEventListener('click', change);
-    document.querySelector('#b4').removeEventListener('click', change);
-    document.querySelector('#b5').removeEventListener('click', change);
-    document.querySelector('#b6').removeEventListener('click', change);
-    document.querySelector('#b7').removeEventListener('click', change);
-    document.querySelector('#b8').removeEventListener('click', change);
-    document.querySelector('#b9').removeEventListener('click', change);
 };
